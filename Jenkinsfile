@@ -1,8 +1,5 @@
-pipeline {
-  agent any
-  /// tools {
-  ///  maven 'apache-maven'
-  /// }
+node("Master") {
+
   stages {
 
     stage('Initialize')  {
@@ -14,10 +11,17 @@ pipeline {
     stage('Build') {
       steps {
         echo 'maven build'
+        sh 'mvn -version'
+
       }
     }
 
-    stage('Unit Test') {
+    stage('JUnit Test') { /// jUNIT TEST WILL ONLY EXCUTE IF THE CURRENT BRANCH IS DEV
+      when { 
+        expression {
+          BRANCH_NAME == 'dev'
+        }
+      }
       steps {
         echo 'test successfuly done'
       }
