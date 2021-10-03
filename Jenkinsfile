@@ -1,5 +1,8 @@
-node("Master") {
-
+pipeline {
+  agent any
+  environment {
+    NEW_VERSION = '1.0'
+  }
   stages {
 
     stage('Initialize')  {
@@ -12,7 +15,7 @@ node("Master") {
       steps {
         echo 'maven build'
         sh 'mvn -version'
-
+        echo "Building version: ${NEW_VERSION}"
       }
     }
 
