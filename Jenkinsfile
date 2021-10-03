@@ -8,7 +8,7 @@ pipeline {
     stage('Initialize')  {
       steps {
         echo 'Initialize Steps'
- ///       sh mvn -version
+       sh 'mvn -version'
       }
     }
     stage('Build') {
@@ -47,7 +47,7 @@ pipeline {
 
     stage('Test') {
       steps {
-        sh 'sh echo "test successful"'
+       echo 'test successful'
       }
     }
 
