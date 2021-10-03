@@ -4,12 +4,13 @@ pipeline {
     maven 'apache-maven'
   }
   stages {
-    stage('Initialize')
+
+    stage('Initialize')  {
       steps {
         echo 'Initialize Steps'
         sh mvn -version
       }
-
+    }
     stage('Build') {
       steps {
         echo 'maven build'
