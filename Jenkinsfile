@@ -1,12 +1,26 @@
 pipeline {
   agent any
+  tools {
+    maven 'apache-maven'
+  }
   stages {
+    stage('Initialize')
+      steps {
+        echo 'Initialize Steps'
+        sh mvn -version
+      }
+
     stage('Build') {
       steps {
-        build 'sh hostname '
+        sh mvn 'sh hostname '
       }
     }
 
+    stage('Unit Test') {
+      steps {
+        sh echo "test successful"'
+      }
+    }
     stage('Deploy ') {
       parallel {
         stage('Deploy Dev') {
