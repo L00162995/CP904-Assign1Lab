@@ -26,7 +26,7 @@ pipeline {
       parallel {
         stage('Deploy Dev') {
           steps {
-            echo 'Deploying in DEV'
+            echo 'Deploying in DEV with test'
           }
         }
 
