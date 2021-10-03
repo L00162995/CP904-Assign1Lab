@@ -12,7 +12,7 @@ pipeline {
 
     stage('Build') {
       steps {
-        sh mvn 'sh hostname '
+        echo 'maven build'
       }
     }
 
