@@ -65,8 +65,4 @@ pipeline {
     }
 
   }
-  environment {
-    test = 'cat file'
-    test2 = 'cat file2'
-  }
 }
