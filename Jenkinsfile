@@ -14,7 +14,7 @@ pipeline {
     stage('Build') {
       steps {
         echo 'maven build'
-        sh 'mvn -version'
+        sh 'mvn -B -DskipTests clean package'
         echo "Building version: ${NEW_VERSION}"
       }
     }
@@ -60,7 +60,7 @@ pipeline {
 
     stage('Archive') {
       steps {
-        archiveArtifacts(allowEmptyArchive: true, artifacts: 'dev-preprod-prod')
+        archiveArtifacts(allowEmptyArchive: true, artifacts: '*.jar')
       }
     }
 
